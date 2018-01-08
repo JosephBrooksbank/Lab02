@@ -7,10 +7,14 @@ public class MazeDriver {
         Scanner stdin = new Scanner(System.in);
 
 
+        // I originally had this in the loop, but it did nothing but clutter up the display.
+        System.out.println("Available commands: {w|a|s|d|q}");
+
         for(;;){
             maze.print();
-            System.out.println("What is your command? {w|a|s|d|q}");
             input = stdin.next();
+            if (input.charAt(0) == 'q')
+                System.exit(0);
             maze.move(input.charAt(0));
 
 
